@@ -21,7 +21,7 @@ import javax.persistence.StoredProcedureQuery;
 public class Model {
 
     private final String CALL_GTASA = "sfalmacenamiento";
-    private static final String PERSISTENCE_UNIT_NAME = "lesson02PU";
+    private static final String PERSISTENCE_UNIT_NAME = "lesson02PU4JTA";
 
     private static EntityManagerFactory factory;
     private static EntityManager em;
