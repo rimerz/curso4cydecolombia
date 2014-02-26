@@ -110,7 +110,7 @@ public class Presupuesto {
 
     @Override
     public String toString() {
-        return "\nPrepto{" + "codigo=" + codigo + ", sigla=" + sigla + ", n_cont=" + n_cont + ", digito=" + digito + ", tamano=" + tamano + ", f_ingreso=" + f_ingreso + ", fsalida=" + fsalida + ", motonave=" + motonave + ", no_dias=" + no_dias + '}' ;
+        return "\nPresupuesto{" + "codigo=" + codigo + ", sigla=" + sigla + ", n_cont=" + n_cont + ", digito=" + digito + ", tamano=" + tamano + ", f_ingreso=" + f_ingreso + ", fsalida=" + fsalida + ", motonave=" + motonave + ", no_dias=" + no_dias + '}' ;
     }
     
 }
