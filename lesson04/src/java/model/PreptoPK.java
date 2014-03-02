@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 import java.io.Serializable;
@@ -22,6 +21,7 @@ import javax.validation.constraints.Size;
  */
 @Embeddable
 public class PreptoPK implements Serializable {
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "codigo")
@@ -118,7 +118,7 @@ public class PreptoPK implements Serializable {
 
     @Override
     public String toString() {
-        return "model.dao.PreptoPK[ codigo=" + codigo + ", fIngreso=" + fIngreso + ", sigla=" + sigla + ", nCont=" + nCont + " ]";
+        return String.format("(codigo=%s, fIngreso=%s,  sigla=%s, nCont=%s)", codigo, fIngreso, sigla, nCont);
     }
-    
+
 }

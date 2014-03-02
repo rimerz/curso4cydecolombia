@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 import java.io.Serializable;
@@ -35,6 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Motonave.findByCodigo", query = "SELECT m FROM Motonave m WHERE m.codigo = :codigo"),
     @NamedQuery(name = "Motonave.findByNombrem", query = "SELECT m FROM Motonave m WHERE m.nombrem = :nombrem")})
 public class Motonave implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,8 +46,8 @@ public class Motonave implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "nombrem")
     private String nombrem;
-    @OneToMany(mappedBy = "motonave")
-    private List<Prepto> preptoList;
+    //@OneToMany(mappedBy = "motonave")
+    // private List<Prepto> preptoList;
 
     public Motonave() {
     }
@@ -77,15 +77,14 @@ public class Motonave implements Serializable {
         this.nombrem = nombrem;
     }
 
-    @XmlTransient
-    public List<Prepto> getPreptoList() {
-        return preptoList;
-    }
+    /*@XmlTransient
+     public List<Prepto> getPreptoList() {
+     return preptoList;
+     }
 
-    public void setPreptoList(List<Prepto> preptoList) {
-        this.preptoList = preptoList;
-    }
-
+     public void setPreptoList(List<Prepto> preptoList) {
+     this.preptoList = preptoList;
+     }*/
     @Override
     public int hashCode() {
         int hash = 0;
@@ -108,7 +107,7 @@ public class Motonave implements Serializable {
 
     @Override
     public String toString() {
-        return "model.dao.Motonave[ codigo=" + codigo + " ]";
+        return String.format("(codigo=%s)", codigo);
     }
-    
+
 }

@@ -3,19 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Modifier;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Prepto;
-import model.dao.DaoPresupuesto;
-import model.dao.jpa.DaoPresupuestoJPA;
+import service.ServicePresupuesto;
+import service.impl.ServicePresupuestoJson;
+import util.MyTypeAdapter;
 
 /**
  *
@@ -34,26 +39,34 @@ public class PruebaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        DaoPresupuesto dp = new DaoPresupuestoJPA();
-        List<Prepto> l = dp.getPresupuestos();
-        
-        
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PruebaServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            for (Prepto prepto : l) {
-                out.println("<h3>" + prepto.getPreptoPK() + "</h3>");
-            }
-            out.println("</body>");
-            out.println("</html>");
+
+        PrintWriter out = response.getWriter();
+
+        ServicePresupuesto sp = null;
+        List<Prepto> l = null;
+
+        Gson gson = new GsonBuilder().serializeNulls().create();;
+        JsonArray ja = null;
+        JsonObject respuesta = new JsonObject();
+
+        response.setContentType("application/json;charset=UTF-8");
+
+        try {
+            sp = new ServicePresupuestoJson();
+            l = sp.getPresupuestos();
+
+            ja = gson.toJsonTree(l).getAsJsonArray();
+
+            respuesta.addProperty("error", 0);
+            respuesta.addProperty("succes", true);
+            respuesta.add("mesage", ja);
+
+        } catch (Exception ex) {
+            respuesta.addProperty("error", ex.getMessage());
+            respuesta.addProperty("succes", false);
+            respuesta.add("mesage", null);
         }
+        out.println(respuesta);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

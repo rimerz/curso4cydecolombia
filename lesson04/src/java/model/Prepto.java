@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 import java.io.Serializable;
@@ -69,6 +68,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Prepto.findByMedio", query = "SELECT p FROM Prepto p WHERE p.medio = :medio"),
     @NamedQuery(name = "Prepto.findByPatio", query = "SELECT p FROM Prepto p WHERE p.patio = :patio")})
 public class Prepto implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected PreptoPK preptoPK;
@@ -481,7 +481,7 @@ public class Prepto implements Serializable {
 
     @Override
     public String toString() {
-        return "\nmodel.dao.Prepto[ preptoPK=" + preptoPK + ",motonave=" + motonave + " ]";
+        return preptoPK.toString() + motonave;
     }
-    
+
 }

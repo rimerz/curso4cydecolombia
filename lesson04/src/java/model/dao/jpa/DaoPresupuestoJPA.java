@@ -23,15 +23,17 @@ public class DaoPresupuestoJPA implements DaoPresupuesto {
 
     private final String CALL_GTASA = "sfalmacenamiento";
     private static final String PERSISTENCE_UNIT_NAME = "lesson04PU";
-
-    @PersistenceContext
-    protected EntityManager em;
-
+  
+    @PersistenceContext(unitName =  "lesson04PU")
+    private EntityManager em; 
+ 
     @Override
     public List getPresupuestos() {
+
         if (em == null) {
             EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
             em = factory.createEntityManager();
+            System.err.println("Not injected @PersistenceContext");
         }
         List<Prepto> list = null;
         StoredProcedureQuery spq = null;
