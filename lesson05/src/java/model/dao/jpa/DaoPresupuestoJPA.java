@@ -17,7 +17,7 @@ import model.dao.DaoPresupuesto;
 
 /**
  *
- * @author administrator
+ * @author administrator 
  */
 public class DaoPresupuestoJPA implements DaoPresupuesto {
 
