@@ -9,11 +9,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import model.Dto;
 import model.Prepto;
 import model.dao.DaoPresupuesto;
 import model.dao.jpa.DaoPresupuestoJPA;
@@ -45,8 +43,8 @@ public class ServicePresupuestoJson implements ServicePresupuesto {
         respuesta.addProperty("error", 0);
         respuesta.addProperty("succes", true);
         respuesta.add("mesage", ja);
-        
+
         return l;
     }
 
-} 
+}
