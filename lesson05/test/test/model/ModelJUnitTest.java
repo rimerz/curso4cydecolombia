@@ -43,22 +43,22 @@ public class ModelJUnitTest {
     //
     @Test
     public void getWhereView_centradas_fromJPA() throws ParseException {
-        Map<String, Object> condiciones = new TreeMap<String, Object>();
-        //condiciones.put("tamaño", 40);
-        //condiciones.put("tipo", "DR");
-        
         SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
-        String strFi = "2014-01-30";
+        String strFi = "2014-01-31";
         String strFf = "2014-01-31";
 
         Date fi = formatoDelTexto.parse(strFi);
         Date ff = formatoDelTexto.parse(strFf);
 
+        Map<String, Object> condiciones = new TreeMap<String, Object>();
+        condiciones.put("tamaño", 40);
+        condiciones.put("tipo", "DR");
         condiciones.put("fIngreso", new Date[]{fi, ff});
 
         DaoView dv = new DaoViewJpa();
         List<Centradas> list = dv.getViewCentradas(condiciones);
         assertNotNull(list);
         System.out.println("Lista: " + list.size());
+        System.out.println("Lista: " + list);
     }
 }

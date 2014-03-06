@@ -54,8 +54,6 @@ public class DaoViewJpa implements DaoView {
             if (atributo.equals("fIngreso")) {
                 Date fi = ((Date[]) value)[0];
                 Date ff = ((Date[]) value)[1];
-                System.err.println(fi);
-                System.err.println(ff);
                 condition = cb.between(atributos.get(Centradas_.fIngreso), fi, ff);
             } else {
                 condition = cb.equal(atributos.get(atributo), value);
