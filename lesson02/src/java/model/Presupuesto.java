@@ -2,6 +2,7 @@ package model;
 
 
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -18,7 +19,7 @@ import javax.persistence.Id;
  * @author rricm
  */
 @Entity
-public class Presupuesto {
+public class Presupuesto implements Serializable {
     @Id
     private String codigo;
     private String sigla ;

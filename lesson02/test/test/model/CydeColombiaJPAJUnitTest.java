@@ -29,7 +29,6 @@ public class CydeColombiaJPAJUnitTest {
 
     @BeforeClass
     public static void setUpClass() {
-        Model.getEntityManager();
     }
 
     @AfterClass
@@ -52,8 +51,8 @@ public class CydeColombiaJPAJUnitTest {
     @Test
     public void getGtasafromDBfromProcedrueAlmaced() throws SQLException {
         java.util.List<Presupuesto> l = model.getSfalmacenamiento("2013-01-27", "2013-01-31");
-        for (Presupuesto p : l) {  
-            System.out.println(p);            
+        for (Presupuesto p : l) {
+            System.out.println(p);
         }
 
         assertNotNull(l);
