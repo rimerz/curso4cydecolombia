@@ -45,7 +45,7 @@ public class PruebaServlet extends HttpServlet {
         ServicePresupuesto sp = null;
         List<Prepto> l = null;
 
-        Gson gson = new GsonBuilder().serializeNulls().create();;
+        Gson gson = new GsonBuilder().serializeNulls().create();
         JsonArray ja = null;
         JsonObject respuesta = new JsonObject();
 

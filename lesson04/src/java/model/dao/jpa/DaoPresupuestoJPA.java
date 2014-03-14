@@ -37,7 +37,7 @@ public class DaoPresupuestoJPA implements DaoPresupuesto {
         }
         List<Prepto> list = null;
         StoredProcedureQuery spq = null;
-
+                
         spq = em.createStoredProcedureQuery(CALL_GTASA, Prepto.class);
         spq.registerStoredProcedureParameter("fi", String.class, ParameterMode.IN);
         spq.registerStoredProcedureParameter("ff", String.class, ParameterMode.IN);
