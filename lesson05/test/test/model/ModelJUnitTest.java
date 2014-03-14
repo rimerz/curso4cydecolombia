@@ -38,13 +38,14 @@ public class ModelJUnitTest {
     public void tearDown() {
     }
 
+    
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
     public void getWhereView_centradas_fromJPA() throws ParseException {
         SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
-        String strFi = "2014-01-31";
+        String strFi = "2013-01-30";
         String strFf = "2014-01-31";
 
         Date fi = formatoDelTexto.parse(strFi);
@@ -59,6 +60,6 @@ public class ModelJUnitTest {
         List<Centradas> list = dv.getViewCentradas(condiciones);
         assertNotNull(list);
         System.out.println("Lista: " + list.size());
-        System.out.println("Lista: " + list);
+        //System.out.println("Lista: " + list);
     }
 }
